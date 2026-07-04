@@ -1,0 +1,45 @@
+# ── Secrets / credentials — NEVER commit to a public repo ──
+.env
+.env.*
+*.pem
+*.key
+.aws/
+aws-credentials*
+
+# ── Terraform state (leaks resource metadata/secrets) ──
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!terraform.tfvars.example
+crash.log
+
+# ── Build / model artifacts ──
+build/
+dist/
+*.zip
+*.pt
+*.safetensors
+*.gguf
+mlruns/
+
+# ── Local AWS emulation ──
+.localstack/
+volume/
+
+# ── Personal docs / planning — NEVER in the public repo ──
+personal/
+plan*.md
+docs/private/
+
+# ── Python / IDE / OS ──
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
