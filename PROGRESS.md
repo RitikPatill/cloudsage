@@ -3,7 +3,7 @@
 > One sprint per week · each week = branch → PR → merge · every core component gets a 3-sentence
 > **"how it works / why this tradeoff"** note written *by me* (the explain-it rule — no un-understood code).
 
-**Current sprint: Week 1 — Foundations & safety net**
+**Current sprint: Week 2 — Path A: self-hosted RAG** *(Week 1 completed 2026-07-04 — same day!)*
 
 ## Sprint checklist
 
@@ -13,9 +13,9 @@
 - [ ] GitHub Project board with the 8-week backlog
 - [x] AWS **Free account plan** created (NOT the paid plan!) ✅ 2026-07-04
 - [x] Zero-spend budget + Free-Tier usage alerts (85%) enabled ✅ 2026-07-04
-- [ ] IAM admin user + AWS CLI configured (`aws sts get-caller-identity` works) — CLI v2 installed ✅; IAM user + `aws configure` pending
+- [x] IAM admin user + AWS CLI configured (`aws sts get-caller-identity` works) ✅ 2026-07-04 (`ritik-dev`, eu-central-1)
 - [x] Docker Desktop installed & running ✅ (pre-existing)
-- [x] AWS MCP servers installed in IDE ✅ (.mcp.json: Docs + Terraform; Pricing/Cost follow once AWS credentials exist)
+- [x] AWS MCP servers installed in IDE ✅ (.mcp.json: Docs + Terraform + Pricing + Billing/Cost)
 - [x] `ollama pull llama3.2:3b` for Week 2 ✅ 2026-07-04
 - [x] **Demo win:** "hello RAG" — local script answering questions over one document ✅ (2026-07-04, `app/hello_rag.py` + `data/sample_aws_docs.md`; ran with deepseek-r1:1.5b — note: retrieval picked weak chunks (keyword overlap) and the tiny model garbled one fact → exactly what Week 2 (embeddings) and Week 5 (eval) fix)
 
