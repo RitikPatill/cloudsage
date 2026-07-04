@@ -16,7 +16,7 @@
 - [ ] IAM admin user + AWS CLI configured (`aws sts get-caller-identity` works)
 - [ ] Docker Desktop installed & running
 - [ ] AWS MCP servers installed in IDE (Docs, Terraform, Pricing, Cost, Diagram)
-- [ ] **Demo win:** "hello RAG" — ~30-line local script answering questions over one document
+- [x] **Demo win:** "hello RAG" — local script answering questions over one document ✅ (2026-07-04, `app/hello_rag.py` + `data/sample_aws_docs.md`; ran with deepseek-r1:1.5b — note: retrieval picked weak chunks (keyword overlap) and the tiny model garbled one fact → exactly what Week 2 (embeddings) and Week 5 (eval) fix)
 
 ### Week 2 — Path A: self-hosted RAG ⬜
 - [ ] FastAPI service + Ollama (Llama/Mistral) + Qdrant via docker-compose
