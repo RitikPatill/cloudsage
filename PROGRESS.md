@@ -21,7 +21,7 @@
 
 ### Week 2 — Path A: self-hosted RAG 🔄
 - [x] **Step 1: Qdrant vector DB in Docker** ✅ 2026-07-04 — `deploy/docker-compose.yml`, image pinned v1.18.2; verified: healthz OK + full smoke test (create collection → insert vector → search scored 1.0 → cleanup)
-- [ ] Step 2: Chunking + HF sentence-transformers embeddings; ingest AWS docs sample
+- [x] **Step 2: Embeddings + semantic search** ✅ 2026-07-04 — `app/ingest.py` (chunk by section → all-MiniLM-L6-v2 embeddings → Qdrant) + `app/search.py --compare`. Findings: semantic won decisively on the vector-store question (0.842 vs #2 at 0.560); on a no-shared-words question the low top score (0.274) exposed *confidence* — something keyword scores can't do. Lesson: production systems use hybrid search (BM25 + vectors) + rerankers.
 - [ ] Step 3: FastAPI service (`POST /ask`) + llama3.2 generation with citations
 - [ ] Step 4: full stack in docker-compose (Qdrant + API together)
 - [ ] **Demo win:** `docker compose up` → local GDPR-safe RAG with citations
@@ -64,3 +64,4 @@ Free account plan only · zero-spend budget before any resource · ❌ OpenSearc
 
 - **Week 1 — repo/git setup:** _pending_
 - **Week 2 / Qdrant:** _DRAFT (Ritik: read, verify, rewrite in your own words):_ Qdrant is a database built for one job — storing vectors (lists of numbers representing meaning) and finding the closest ones fast. We run it as a Docker container with a named volume so the data survives restarts, and we pinned image v1.18.2 because "latest" can silently change under you. Chose Qdrant over alternatives because it's free/self-hosted (GDPR story), German-founded (interview talking point), and has a clean REST API.
+- **Week 2 / Embeddings:** _DRAFT (Ritik: rewrite in your own words):_ An embedding model (all-MiniLM-L6-v2, 384 dims, runs on PyTorch) converts text to vectors where similar *meanings* land close together — so "keeps charging me money" can find "bill traps" without sharing words. Cosine similarity between the question vector and chunk vectors gives a *confidence score*: high = trust the match, low = say "I'm not sure" instead of hallucinating. Keyword matching can luck into right answers but its scores carry no meaning — that's why production RAG uses hybrid search (keywords + vectors) and rerankers.
