@@ -9,13 +9,14 @@
 
 ### Week 1 — Foundations & safety net 🔄
 - [x] Local repo scaffolded (git init, .gitignore, README, tracker)
-- [ ] Public GitHub repo created + branch protection on `main`
+- [x] Public GitHub repo created + branch protection on `main` ✅ 2026-07-04 (github.com/RitikPatill/cloudsage, PR #1 merged — PRs required on main)
 - [ ] GitHub Project board with the 8-week backlog
-- [ ] AWS **Free account plan** created (NOT the paid plan!)
-- [ ] Zero-spend budget + Free-Tier usage alerts (85%) enabled — *before any resource*
-- [ ] IAM admin user + AWS CLI configured (`aws sts get-caller-identity` works)
-- [ ] Docker Desktop installed & running
-- [ ] AWS MCP servers installed in IDE (Docs, Terraform, Pricing, Cost, Diagram)
+- [x] AWS **Free account plan** created (NOT the paid plan!) ✅ 2026-07-04
+- [x] Zero-spend budget + Free-Tier usage alerts (85%) enabled ✅ 2026-07-04
+- [ ] IAM admin user + AWS CLI configured (`aws sts get-caller-identity` works) — CLI v2 installed ✅; IAM user + `aws configure` pending
+- [x] Docker Desktop installed & running ✅ (pre-existing)
+- [x] AWS MCP servers installed in IDE ✅ (.mcp.json: Docs + Terraform; Pricing/Cost follow once AWS credentials exist)
+- [x] `ollama pull llama3.2:3b` for Week 2 ✅ 2026-07-04
 - [x] **Demo win:** "hello RAG" — local script answering questions over one document ✅ (2026-07-04, `app/hello_rag.py` + `data/sample_aws_docs.md`; ran with deepseek-r1:1.5b — note: retrieval picked weak chunks (keyword overlap) and the tiny model garbled one fact → exactly what Week 2 (embeddings) and Week 5 (eval) fix)
 
 ### Week 2 — Path A: self-hosted RAG ⬜
