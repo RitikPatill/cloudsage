@@ -19,10 +19,12 @@
 - [x] `ollama pull llama3.2:3b` for Week 2 ✅ 2026-07-04
 - [x] **Demo win:** "hello RAG" — local script answering questions over one document ✅ (2026-07-04, `app/hello_rag.py` + `data/sample_aws_docs.md`; ran with deepseek-r1:1.5b — note: retrieval picked weak chunks (keyword overlap) and the tiny model garbled one fact → exactly what Week 2 (embeddings) and Week 5 (eval) fix)
 
-### Week 2 — Path A: self-hosted RAG ⬜
-- [ ] FastAPI service + Ollama (Llama/Mistral) + Qdrant via docker-compose
-- [ ] Chunking + HF sentence-transformers embeddings; ingest AWS docs sample
-- [ ] **Demo win:** `docker-compose up` → local GDPR-safe RAG with citations
+### Week 2 — Path A: self-hosted RAG 🔄
+- [x] **Step 1: Qdrant vector DB in Docker** ✅ 2026-07-04 — `deploy/docker-compose.yml`, image pinned v1.18.2; verified: healthz OK + full smoke test (create collection → insert vector → search scored 1.0 → cleanup)
+- [ ] Step 2: Chunking + HF sentence-transformers embeddings; ingest AWS docs sample
+- [ ] Step 3: FastAPI service (`POST /ask`) + llama3.2 generation with citations
+- [ ] Step 4: full stack in docker-compose (Qdrant + API together)
+- [ ] **Demo win:** `docker compose up` → local GDPR-safe RAG with citations
 
 ### Week 3 — First AWS deploy (Terraform) ⬜
 - [ ] Console-first walkthrough (S3, Lambda, HTTP API) → then codify in Terraform
@@ -61,3 +63,4 @@ Free account plan only · zero-spend budget before any resource · ❌ OpenSearc
 *(One short note per component, written by me after building it.)*
 
 - **Week 1 — repo/git setup:** _pending_
+- **Week 2 / Qdrant:** _DRAFT (Ritik: read, verify, rewrite in your own words):_ Qdrant is a database built for one job — storing vectors (lists of numbers representing meaning) and finding the closest ones fast. We run it as a Docker container with a named volume so the data survives restarts, and we pinned image v1.18.2 because "latest" can silently change under you. Chose Qdrant over alternatives because it's free/self-hosted (GDPR story), German-founded (interview talking point), and has a clean REST API.
